@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="bg">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>MoonBot Hub – Copy Trading & AI Bots</title>
@@ -92,20 +92,20 @@
         </section>
 
         <section class="card">
-            <h2 style="color: #42a5f5;">Прогнози (BTC/ETH/SOL)</h2>
-            <p>Статични цени (BTC: $94,550, ETH: $3,120, SOL: $150)</p>
+            <h2 style="color: #42a5f5;">Forecasts (BTC/ETH/SOL)</h2>
+            <p>Static prices (BTC: $94,550, ETH: $3,120, SOL: $150)</p>
         </section>
 
         <section id="bots" class="card">
-            <h2 style="color: #42a5f5;">Топ AI Ботове</h2>
+            <h2 style="color: #42a5f5;">Top AI Bots</h2>
             <table>
-                <tr><th>Бот</th><th>Стратегия</th><th>30D Return</th><th>Цена</th><th>Детайли</th><th>Действие</th></tr>
-                <tr><td>Cryptohopper</td><td>AI Strategies</td><td class="return">+25%</td><td class="price">$1000</td><td class="details">AI алгоритми за автоматични trades с висока ефективност</td><td><button onclick="showDeposit('Cryptohopper', 1000)">Copy Now</button></td></tr>
-                <tr><td>3Commas</td><td>DCA Bots</td><td class="return">+18%</td><td class="price">$500</td><td class="details">DCA стратегии за стабилни печалби в волатилен пазар</td><td><button onclick="showDeposit('3Commas', 500)">Copy Now</button></td></tr>
-                <tr><td>Pionex</td><td>Grid Trading</td><td class="return">+12%</td><td class="price">$20</td><td class="details">Grid bots за автоматизирани покупки/продажби</td><td><button onclick="showDeposit('Pionex', 20)">Copy Now</button></td></tr>
-                <tr><td>Coinrule</td><td>Rule-Based</td><td class="return">+20%</td><td class="price">$500</td><td class="details">Правило-базирани ботове за персонализирани правила</td><td><button onclick="showDeposit('Coinrule', 500)">Copy Now</button></td></tr>
-                <tr><td>Bitsgap</td><td>Arbitrage</td><td class="return">+30%</td><td class="price">$1000</td><td class="details">Arbitrage ботове за печалби от ценови разлики</td><td><button onclick="showDeposit('Bitsgap', 1000)">Copy Now</button></td></tr>
-                <tr><td>TradeSanta</td><td>Cloud DCA</td><td class="return">+15%</td><td class="price">$20</td><td class="details">Облачни DCA ботове за лесна настройка</td><td><button onclick="showDeposit('TradeSanta', 20)">Copy Now</button></td></tr>
+                <tr><th>Bot</th><th>Strategy</th><th>30D Return</th><th>Price</th><th>Details</th><th>Action</th></tr>
+                <tr><td>MoonBot 1</td><td>AI Strategies</td><td class="return">+25%</td><td class="price">$1000</td><td class="details">AI algorithms for MoonBot 1 with high efficiency</td><td><button onclick="showDeposit('MoonBot 1', 1000)">Copy Now</button></td></tr>
+                <tr><td>MoonHub</td><td>DCA Bots</td><td class="return">+18%</td><td class="price">$500</td><td class="details">DCA strategies for MoonHub in volatile markets</td><td><button onclick="showDeposit('MoonHub', 500)">Copy Now</button></td></tr>
+                <tr><td>LunarTrader</td><td>Grid Trading</td><td class="return">+12%</td><td class="price">$20</td><td class="details">Grid bots for LunarTrader buy/sell cycles</td><td><button onclick="showDeposit('LunarTrader', 20)">Copy Now</button></td></tr>
+                <tr><td>AstroBot</td><td>Rule-Based</td><td class="return">+20%</td><td class="price">$500</td><td class="details">Rule-based bots for AstroBot customization</td><td><button onclick="showDeposit('AstroBot', 500)">Copy Now</button></td></tr>
+                <tr><td>CosmoProfit</td><td>Arbitrage</td><td class="return">+30%</td><td class="price">$1000</td><td class="details">Arbitrage bots for CosmoProfit price differences</td><td><button onclick="showDeposit('CosmoProfit', 1000)">Copy Now</button></td></tr>
+                <tr><td>StellarDCA</td><td>Cloud DCA</td><td class="return">+15%</td><td class="price">$20</td><td class="details">Cloud-based DCA bots for StellarDCA setup</td><td><button onclick="showDeposit('StellarDCA', 20)">Copy Now</button></td></tr>
             </table>
         </section>
 
@@ -128,7 +128,7 @@
         </section>
 
         <section class="card">
-            <h2 style="color: #42a5f5;">Поддържани Борси</h2>
+            <h2 style="color: #42a5f5;">Supported Exchanges</h2>
             <div class="exchanges">
                 <span class="binance">Binance</span>
                 <span class="kucoin">KuCoin</span>
@@ -158,7 +158,44 @@
     </div>
 
     <script>
-        const addresses = {
-            ETH: '0xD975D714716909725C97d6c7F50779Eb6E41B1E4',
-            SOL: '8DvQWUKq69htMsoRnJx11rDdFuDVq9FteG7R1JsMkY7H',
-            BTC: 'bc1qkn
+        function showDeposit(botName, botPrice) {
+            document.getElementById('botName').innerText = botName;
+            document.getElementById('botPrice').innerText = botPrice;
+            document.getElementById('botPrice2').innerText = botPrice;
+            document.getElementById('depositPopup').style.display = 'block';
+            updateAddress();
+        }
+
+        function hideDeposit() {
+            document.getElementById('depositPopup').style.display = 'none';
+        }
+
+        function updateAddress() {
+            const currency = document.getElementById('currency').value;
+            const addresses = {
+                ETH: '0xD975D714716909725C97d6c7F50779Eb6E41B1E4',
+                SOL: '8DvQWUKq69htMsoRnJx11rDdFuDVq9FteG7R1JsMkY7H',
+                BTC: 'bc1qknu8k8j5w4f4v2q8q4v8q8v8q8v8q8v8q8v8q8v8q8v8q8v8q',
+                SUI: '0x1::coin::Coin<0x2::sui::SUI>',
+                POLYGON: '0xD975D714716909725C97d6c7F50779Eb6E41B1E4',
+                BASE: '0xD975D714716909725C97d6c7F50779Eb6E41B1E4'
+            };
+            document.getElementById('depositAddress').innerText = `Address: ${addresses[currency] || 'Invalid currency'}`;
+        }
+
+        function sendTxId() {
+            const txId = document.getElementById('txId').value;
+            if (txId) {
+                alert(`Tx ID ${txId} sent for verification. Check your email for confirmation!`);
+                hideDeposit();
+            } else {
+                alert('Please enter a valid tx ID.');
+            }
+        }
+
+        function scrollToBots() {
+            document.getElementById('bots').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
